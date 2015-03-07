@@ -1,44 +1,10 @@
-@charset "UTF-8";
-.explorer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: flex-start; }
-
-.explorer {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box; }
-
-/**
- * ツリー部分。explorer.js のターゲット。
- */
-.folder-tree {
-  left: 0;
-  top: 0;
-  bottom: 0;
-  padding: .5em;
-  width: 300px;
-  height: 100%;
-  background-color: #ecf0f1; }
-
-/**
- * フォルダ詳細。
- */
-.folder-detail {
-  width: auto;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  overflow: scroll;
-  border: solid 1px #bdc3c7; }
+@charset "utf-8";
+@import "./layout/explore-layout";
 
 html, body {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 /**
  * コンテンツ領域。
@@ -46,68 +12,81 @@ html, body {
 .l-content {
   width: 100%;
   height: 100%;
-  color: #2c3e50; }
+  color: #2c3e50;
+}
 
 /**
  * ツリー内のアイコン。
  */
 .l-content .explorer [class^="icon-"],
 .l-content .explorer [class*=" icon-"] {
-  margin-right: .2em; }
+  margin-right: .2em;
+}
 
 /**
  * フォルダのアイコン。
  */
 .l-content .explorer .icon-folder {
-  color: #3498db; }
+  color: #3498db;
+}
 
 /**
  * ファイルのアイコン。
  */
 .l-content .explorer .icon-file {
-  color: #f39c12; }
+  color: #f39c12;
+}
 
 /*******************************************************************************
  * フォルダ ツリー
  ******************************************************************************/
+
+
 /**
  * フォルダ内のツリー。
  */
 .folder-tree ul {
   margin: .5em;
   padding: 0 0 0 2em;
-  list-style: none; }
+  list-style: none;
+}
 
 /**
  * フォルダ内ツリーのアイテム。
  */
 .folder-tree li {
   padding: .2em 0;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 /**
  * ツリー展開状態アイコ。
  */
 .folder-tree .icon-arrow-right,
 .folder-tree .icon-arrow-down {
-  color: #95a5a6; }
+  color: #95a5a6;
+}
 
 /*******************************************************************************
  * フォルダ詳細
  ******************************************************************************/
+
+
 /**
  * 詳細テーブル。
  */
 .folder-detail .items {
   width: 100%;
   border-collapse: collapse;
-  border-bottom: solid 1px #bdc3c7; }
+  border-bottom: solid 1px #bdc3c7;
+}
 
 /**
  * 選択された行。
  */
 .folder-detail .items .selected {
-  background-color: #ecf0f1; }
+  background-color: #ecf0f1;
+}
 
 /**
  * ヘッダー。
@@ -116,7 +95,8 @@ html, body {
   background-color: #bdc3c7;
   color: #fff;
   font-weight: normal;
-  padding: .2em .5em; }
+  padding: .2em .5em;
+}
 
 /**
  * アイテム情報。
@@ -124,19 +104,20 @@ html, body {
 .folder-detail .items td {
   border-right: solid 1px #bdc3c7;
   padding: .2em .5em;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 /**
  * サイズ。
  */
-.folder-detail .items td:nth-child(3) {
-  text-align: right; }
+.folder-detail .items td:nth-child( 3 ) {
+  text-align: right;
+}
 
 /**
  * パーミッション。
  */
-.folder-detail .items td:nth-child(4) {
+.folder-detail .items td:nth-child( 4 ) {
   text-align: center;
-  font-family: monospace; }
-
-/*# sourceMappingURL=style.css.map */
+  font-family: monospace;
+}

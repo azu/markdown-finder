@@ -47,15 +47,17 @@ var Explorer = React.createClass({
      * @param  {String} folder 新たに選択されたフォルダ。
      */
     updateFolderDetail: function (folder) {
-        var fileutil = require('./file-utility');
+        var fileUtil = require('./file-utility');
         var component = this;
 
-        fileutil.enumItemsAtFolder(
+        fileUtil.enumItemsAtFolder(
             folder,
             function (items) {
                 items.sort(function (a, b) {
-                    return ( a.isDirectory === b.isDirectory ? a.name.localeCompare(b.name) : ( a.isDirectory ? -1
-                        : 1 ) );
+                    return (
+                        a.isDirectory === b.isDirectory
+                            ? a.name.localeCompare(b.name)
+                            : a.isDirectory );
                 });
 
                 component.setState({currentFolder: folder, items: items});

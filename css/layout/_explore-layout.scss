@@ -1,0 +1,46 @@
+
+%flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.explorer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  @extend %flex-container;
+}
+
+/**
+ * ツリー部分。explorer.js のターゲット。
+ */
+
+.folder-tree {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: .5em;
+  width: 300px;
+  height: 100%;
+  background-color: #ecf0f1;
+}
+
+/**
+ * フォルダ詳細。
+ */
+
+.folder-detail {
+  width: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: scroll;
+  border: solid 1px #bdc3c7;
+}
+
+
