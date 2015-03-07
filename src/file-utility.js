@@ -54,7 +54,11 @@ module.exports = {
                     }
 
                     var path = folderPath + name;
-                    var stat = fs.statSync(path);
+                    try {
+                        var stat = fs.statSync(path);
+                    } catch (e) {
+                        return;
+                    }
                     var isDirectory = stat.isDirectory();
                     if (!( withFiles || isDirectory )) {
                         return null;

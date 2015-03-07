@@ -11,6 +11,7 @@
 .explorer {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   @extend %flex-container;
 }
@@ -26,6 +27,7 @@
   padding: .5em;
   width: 300px;
   height: 100%;
+  overflow: scroll;
   background-color: #ecf0f1;
 }
 
