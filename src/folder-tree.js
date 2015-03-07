@@ -25,8 +25,10 @@ var FolderTree = React.createClass({
         if (this.state.subFolders) {
             var onSelectFolder = this.props.onSelectFolder;
             subFolders = this.state.subFolders.map(function (item, index) {
-                return (<li key={index}><FolderTree name={item.name} path={item.path} onSelectFolder={onSelectFolder}/>
-                </li> );
+                return (
+                    <li key={index}><FolderTree name={item.name} path={item.path} onSelectFolder={onSelectFolder}/>
+                    </li>
+                );
             });
         }
 

@@ -65,7 +65,7 @@ var FolderDetail = React.createClass({
     /**
      * アイテムがクリックされた時に発生します。
      *
-     * @param {Object} アイテム情報。
+     * @param {Object} item アイテム情報。
      */
     onClickItem: function (item) {
         this.setState({selectedItem: item});
@@ -73,7 +73,7 @@ var FolderDetail = React.createClass({
     /**
      * アイテムがダブル クリックされた時に発生します。
      *
-     * @param {Object} アイテム情報。
+     * @param {Object} item アイテム情報。
      */
     onDoubleClickItem: function (item) {
         if (item.isDirectory) {

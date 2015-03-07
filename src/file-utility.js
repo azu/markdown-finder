@@ -84,7 +84,7 @@ module.exports = {
     /**
      * バイト数を単位付き文字列に変換します。
      *
-     * @param {Number} size ファイル サイズ。
+     * @param {Number} bytes ファイル サイズ。
      *
      * @return {String} 単位付きのファイル サイズ文字列。TB を超えるサイズの場合は '--' を返します。
      */
@@ -164,7 +164,7 @@ module.exports = {
      * パーミッションを示す数値から記号化された文字列を取得します。
      *
      * @param {Number} mode モード。
-     *
+     * @param isDirectory
      * @return {String} パーミッション表記の文字列。
      */
     getPermissionString: function (mode, isDirectory) {
