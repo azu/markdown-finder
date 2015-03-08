@@ -5,25 +5,14 @@ var React = require('react');
  */
 var FolderDetail = React.createClass({
     /**
-     * コンポーネントの状態を初期化します。
-     *
-     * @return {Object} 初期化された状態オブジェクト。
-     */
-    getInitialState: function () {
-        return {
-            selectedItem: null
-        };
-    },
-    /**
      * コンポーネントの描画オブジェクトを取得します。
      *
      * @return {Object} 描画オブジェクト。
      */
     render: function () {
-        var fileutil = require('./../file-utility');
-
-        var items = this.props.items.map(function (item, index) {
-            var style = ( item === this.state.selectedItem ? 'selected' : '' );
+        var fileutil = require('../file-utility');
+        var items = this.props.items.map((item, index)=> {
+            var style = ( item === this.props.currentItem ? 'selected' : '' );
             var icon = ( item.isDirectory ? 'icon-folder' : 'icon-file' );
             var type = fileutil.getItemType(item);
             var size = fileutil.bytesToSize(item.size);
@@ -68,7 +57,7 @@ var FolderDetail = React.createClass({
      * @param {Object} item アイテム情報。
      */
     onClickItem: function (item) {
-        this.setState({selectedItem: item});
+        this.props.onClickItem(item);
     },
     /**
      * アイテムがダブル クリックされた時に発生します。
@@ -80,7 +69,7 @@ var FolderDetail = React.createClass({
             // ここでフォルダ ツリーに変更通知して展開させたい
 
         } else {
-            var fileutil = require('./../file-utility');
+            var fileutil = require('../file-utility');
             fileutil.shellOpenItem(item.path);
         }
     }

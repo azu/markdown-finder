@@ -29,6 +29,7 @@
   "dependencies": {
     "flummox": "^2.13.1",
     "marked": "^0.3.3",
+    "md2react": "^0.2.3",
     "node-webkit-winstate": "^1.1.0",
     "nw-normalize-menu": "^1.0.1",
     "react": "^0.13.0-rc2"

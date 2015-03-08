@@ -21,13 +21,16 @@ function getItemInDirectoryAsync(directoryPath) {
     });
 }
 class ExploreAction extends Actions {
-    async selectFolder(directoryPath) {
+    selectFolder(directoryPath) {
         return getItemInDirectoryAsync(directoryPath).then((items)=> {
             return {
                 items: items,
                 currentFolder: directoryPath
             }
         });
+    }
+    selectItem(item) {
+        return item;
     }
 }
 export default ExploreAction;

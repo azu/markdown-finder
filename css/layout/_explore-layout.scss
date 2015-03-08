@@ -31,18 +31,36 @@
   background-color: #ecf0f1;
 }
 
+.detail-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+}
+
 /**
  * フォルダ詳細。
  */
 
 .folder-detail {
-  width: auto;
+  height: 500px;
+  width: 100%;
   left: 0;
   top: 0;
   bottom: 0;
-  height: 100%;
   overflow: scroll;
   border: solid 1px #bdc3c7;
 }
 
-
+.item-preview {
+  height: 500px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: scroll;
+  border: solid 1px #bdc3c7;
+}

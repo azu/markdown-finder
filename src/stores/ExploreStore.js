@@ -8,7 +8,9 @@ class ExploreStore extends Store {
         super();
         var messageActionIds = flux.getActionIds('messages');
         this.register(messageActionIds.selectFolder, this.onSelectFolder);
+        this.register(messageActionIds.selectItem, this.onSelectItem);
         this.state = {
+            currentItem: null,
             items: [],
             currentFolder: getUserHomeDir()
         };
@@ -22,11 +24,22 @@ class ExploreStore extends Store {
         return this.state.items;
     }
 
+    get currentItem() {
+        return this.state.currentItem;
+    }
+
+
     onSelectFolder(state) {
         if (this.state.currentFolder === state.currentFolder) {
             return;
         }
         this.setState(state);
+    }
+
+    onSelectItem(item) {
+        this.setState({
+            currentItem: item
+        });
     }
 }
 export default ExploreStore;

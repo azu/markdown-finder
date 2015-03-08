@@ -4,6 +4,7 @@
 var React = require('react');
 import FolderTree from "./FolderTreeComponent.js"
 import FolderDetail from "./FolderDetailComponent.js"
+import PreviewContent from "./PreviewContentComponent.js"
 class ExplorerComponent extends React.Component {
     constructor(props) {
         super();
@@ -11,7 +12,8 @@ class ExplorerComponent extends React.Component {
         this.action = props.flux.explorerAction;
         this.state = {
             items: this.store.items,
-            currentFolder: this.store.currentFolder
+            currentFolder: this.store.currentFolder,
+            currentItem: this.store.currentItem
         }
     }
 
@@ -22,7 +24,8 @@ class ExplorerComponent extends React.Component {
     onChange() {
         this.setState({
             items: this.store.items,
-            currentFolder: this.store.currentFolder
+            currentFolder: this.store.currentFolder,
+            currentItem: this.store.currentItem
         });
     }
 
@@ -31,8 +34,11 @@ class ExplorerComponent extends React.Component {
     }
 
     onSelectFolder(folder) {
-        console.log(this.props);
         this.action.selectFolder(folder);
+    }
+
+    onClickItem(item) {
+        this.action.selectItem(item);
     }
 
     /**
@@ -44,10 +50,18 @@ class ExplorerComponent extends React.Component {
         return (
             <div className="explorer">
                 <div className="folder-tree">
-                    <FolderTree name="HOME" path={this.state.currentFolder} onSelectFolder={this.onSelectFolder.bind(this)}/>
+                    <FolderTree name="HOME" path={this.state.currentFolder}
+                                onSelectFolder={this.onSelectFolder.bind(this)}/>
                 </div>
-                <div className="folder-detail">
-                    <FolderDetail items={this.state.items} />
+                <div className="detail-column">
+                    <div className="folder-detail">
+                        <FolderDetail items={this.state.items}
+                                      currentItem={this.state.currentItem}
+                                      onClickItem={this.onClickItem.bind(this)}/>
+                    </div>
+                    <div className="item-preview">
+                        <PreviewContent item={this.state.currentItem}/>
+                    </div>
                 </div>
             </div>
         );
