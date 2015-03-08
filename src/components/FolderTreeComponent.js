@@ -59,7 +59,7 @@ var FolderTree = React.createClass({
             this.setState({enumerated: true});
 
             var component = this;
-            var fileutil = require('./file-utility');
+            var fileutil = require('./../file-utility');
 
             fileutil.enumItemsAtFolder(this.props.path, function (subFolders) {
                 component.setState({

@@ -20,7 +20,7 @@ var FolderDetail = React.createClass({
      * @return {Object} 描画オブジェクト。
      */
     render: function () {
-        var fileutil = require('./file-utility');
+        var fileutil = require('./../file-utility');
 
         var items = this.props.items.map(function (item, index) {
             var style = ( item === this.state.selectedItem ? 'selected' : '' );
@@ -80,7 +80,7 @@ var FolderDetail = React.createClass({
             // ここでフォルダ ツリーに変更通知して展開させたい
 
         } else {
-            var fileutil = require('./file-utility');
+            var fileutil = require('./../file-utility');
             fileutil.shellOpenItem(item.path);
         }
     }
