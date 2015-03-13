@@ -1,14 +1,13 @@
 // LICENSE : MIT
 "use strict";
-import { Store } from 'flummox';
-import Action from "../actions/ExploreAction.js"
+import { Store } from 'material-flux';
+import { keys } from "../actions/ExploreAction.js"
 import {getUserHomeDir} from "../file-utility.js"
 class ExploreStore extends Store {
     constructor(flux) {
-        super();
-        var messageActionIds = flux.getActionIds('messages');
-        this.register(messageActionIds.selectFolder, this.onSelectFolder);
-        this.register(messageActionIds.selectItem, this.onSelectItem);
+        super(flux);
+        this.register(keys.selectFolder, this.onSelectFolder);
+        this.register(keys.selectItem, this.onSelectItem);
         this.state = {
             currentItem: null,
             items: [],

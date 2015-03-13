@@ -1,6 +1,6 @@
 // LICENSE : MIT
 "use strict";
-import { Actions } from 'flummox';
+import { Action } from 'material-flux';
 /**
  * フォルダ詳細を更新します。
  *
@@ -20,17 +20,24 @@ function getItemInDirectoryAsync(directoryPath) {
         }, true);
     });
 }
-class ExploreAction extends Actions {
+
+
+export var keys = {
+    selectFolder: "selectFolder",
+    selectItem: "selectItem"
+};
+class ExploreAction extends Action {
     selectFolder(directoryPath) {
-        return getItemInDirectoryAsync(directoryPath).then((items)=> {
-            return {
+        getItemInDirectoryAsync(directoryPath).then((items)=> {
+            this.dispatch(keys.selectFolder, {
                 items: items,
                 currentFolder: directoryPath
-            }
+            });
         });
     }
+
     selectItem(item) {
-        return item;
+        this.dispatch(keys.selectFolder, item);
     }
 }
 export default ExploreAction;

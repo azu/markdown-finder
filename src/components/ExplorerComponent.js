@@ -7,9 +7,9 @@ import FolderDetail from "./FolderDetailComponent.js"
 import PreviewContent from "./PreviewContentComponent.js"
 class ExplorerComponent extends React.Component {
     constructor(props) {
-        super();
-        this.store = props.flux.explorerStore;
-        this.action = props.flux.explorerAction;
+        super(props);
+        this.store = props.context.explorerStore;
+        this.action = props.context.explorerAction;
         this.state = {
             items: this.store.items,
             currentFolder: this.store.currentFolder,
@@ -18,10 +18,10 @@ class ExplorerComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.store.addListener("change", this.onChange.bind(this))
+        this.store.onChange(this._onChange.bind(this))
     }
 
-    onChange() {
+    _onChange() {
         this.setState({
             items: this.store.items,
             currentFolder: this.store.currentFolder,
@@ -30,7 +30,7 @@ class ExplorerComponent extends React.Component {
     }
 
     componentWillUnmount() {
-        this.store.emitter.removeAllListeners("change");
+        this.store.removeAllChangeListeners();
     }
 
     onSelectFolder(folder) {

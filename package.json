@@ -9,7 +9,6 @@
   },
   "main": "index.html",
   "scripts": {
-    "install": "bower install",
     "build": "babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
     "test": "mocha test/*.js"
@@ -27,8 +26,8 @@
     "bower": "^1.3.12"
   },
   "dependencies": {
-    "flummox": "^2.13.1",
     "marked": "^0.3.3",
+    "material-flux": "file:../material-flux",
     "md2react": "^0.2.3",
     "node-webkit-winstate": "^1.1.0",
     "nw-normalize-menu": "^1.0.1",
