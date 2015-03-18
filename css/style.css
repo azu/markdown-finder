@@ -28,6 +28,8 @@
 
 .detail-column {
   display: flex;
+  flex: 1;
+  width: 100%;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -39,6 +41,7 @@
  * フォルダ詳細。
  */
 .folder-detail {
+  flex: 1;
   height: 500px;
   width: 100%;
   left: 0;
@@ -48,6 +51,7 @@
   border: solid 1px #bdc3c7; }
 
 .item-preview {
+  flex: 1;
   height: 500px;
   width: 100%;
   left: 0;

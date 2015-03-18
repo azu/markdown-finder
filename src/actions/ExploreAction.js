@@ -23,8 +23,8 @@ function getItemInDirectoryAsync(directoryPath) {
 
 
 export var keys = {
-    selectFolder: "selectFolder",
-    selectItem: "selectItem"
+    selectFolder: Symbol("selectFolder"),
+    selectItem: Symbol("selectItem")
 };
 class ExploreAction extends Action {
     selectFolder(directoryPath) {
@@ -37,7 +37,7 @@ class ExploreAction extends Action {
     }
 
     selectItem(item) {
-        this.dispatch(keys.selectFolder, item);
+        this.dispatch(keys.selectItem, item);
     }
 }
 export default ExploreAction;
