@@ -25,7 +25,7 @@ var FolderDetail = React.createClass({
                     className={style}
                     tabIndex={index}
                     onClick={this.onClickItem.bind( this, item )}
-                    onKeyPress={this.onKeyPress.bind(this,item,index)
+                    onKeyPress={this.onKeyPress.bind(this,item,index)}
                     onDoubleClick={this.onDoubleClickItem.bind( this, item )}>
                     <td><i className={icon}></i> {item.name}</td>
                     <td>{type}</td>
