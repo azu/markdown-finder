@@ -40,7 +40,10 @@ class ExplorerComponent extends React.Component {
     onClickItem(item) {
         this.action.selectItem(item);
     }
-
+    
+    onKeyPress(item,index){
+        console.log(item, index);
+    }
     /**
      * コンポーネントの描画オブジェクトを取得します。
      *
@@ -57,6 +60,7 @@ class ExplorerComponent extends React.Component {
                     <div className="folder-detail">
                         <FolderDetail items={this.state.items}
                                       currentItem={this.state.currentItem}
+                                      onKeyPress={this.onKeyPress.bind(this)}
                                       onClickItem={this.onClickItem.bind(this)}/>
                     </div>
                     <div className="item-preview">

@@ -23,7 +23,9 @@ var FolderDetail = React.createClass({
                 <tr
                     key={index}
                     className={style}
+                    tabIndex={index}
                     onClick={this.onClickItem.bind( this, item )}
+                    onKeyPress={this.onKeyPress.bind(this,item,index)
                     onDoubleClick={this.onDoubleClickItem.bind( this, item )}>
                     <td><i className={icon}></i> {item.name}</td>
                     <td>{type}</td>
@@ -59,6 +61,9 @@ var FolderDetail = React.createClass({
     onClickItem: function (item) {
         this.props.onClickItem(item);
     },
+    onKeyPress: function(item, index){
+        this.props.onKeyPress(item, index);
+    }
     /**
      * アイテムがダブル クリックされた時に発生します。
      *
