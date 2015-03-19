@@ -63,7 +63,7 @@ var FolderDetail = React.createClass({
     },
     onKeyPress: function(item, index){
         this.props.onKeyPress(item, index);
-    }
+    },
     /**
      * アイテムがダブル クリックされた時に発生します。
      *
