@@ -4,6 +4,11 @@ var React = require('react');
  * フォルダー内の詳細情報コンポーネントです。
  */
 var FolderDetail = React.createClass({
+    sortByTime(items){
+        return this.props.items.sort(function (aItem, bItem) {
+            return bItem.mtime - aItem.mtime;
+        });
+    },
     /**
      * コンポーネントの描画オブジェクトを取得します。
      *
@@ -11,12 +16,12 @@ var FolderDetail = React.createClass({
      */
     render: function () {
         var fileutil = require('../file-utility');
-        var items = this.props.items.map((item, index)=> {
+        var items = this.sortByTime(this.props.items).map((item, index)=> {
             var style = ( item === this.props.currentItem ? 'selected' : '' );
             var icon = ( item.isDirectory ? 'icon-folder' : 'icon-file' );
             var type = fileutil.getItemType(item);
             var size = fileutil.bytesToSize(item.size);
-            var mode = fileutil.getPermissionString(item.mode, item.isDirectory);
+            //var mode = fileutil.getPermissionString(item.mode, item.isDirectory);
             var date = fileutil.dateToString(item.mtime);
 
             return (
@@ -30,7 +35,6 @@ var FolderDetail = React.createClass({
                     <td><i className={icon}></i> {item.name}</td>
                     <td>{type}</td>
                     <td>{size}</td>
-                    <td>{mode}</td>
                     <td>{date}</td>
                 </tr>
             );
@@ -43,7 +47,6 @@ var FolderDetail = React.createClass({
                     <th>Name</th>
                     <th>Type</th>
                     <th>Size</th>
-                    <th>Permission</th>
                     <th>Modified</th>
                 </tr>
                 </thead>
@@ -61,7 +64,7 @@ var FolderDetail = React.createClass({
     onClickItem: function (item) {
         this.props.onClickItem(item);
     },
-    onKeyPress: function(item, index){
+    onKeyPress: function (item, index) {
         this.props.onKeyPress(item, index);
     },
     /**
