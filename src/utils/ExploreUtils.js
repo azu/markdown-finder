@@ -8,7 +8,6 @@ function createNewNote(directoryPath) {
         return false;
     }
     var filePath = path.join(directoryPath, title + ".md");
-    console.log(filePath);
     try {
         fs.writeFileSync(filePath, `# ${title}`);
     } catch (error) {
