@@ -11,12 +11,11 @@ class ExplorerComponent extends React.Component {
             content = require("fs").readFileSync(item.path, "utf-8");
         }
         return content;
-
     }
 
     render() {
         var content = this.template();
-        return (<div>
+        return (<div className="PreviewContentComponent">
             <div dangerouslySetInnerHTML={{
             __html: marked(content)
           }}>

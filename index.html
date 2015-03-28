@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>nw.js: Use require</title>
-  <script src="node_modules/nw-normalize-menu/nw-normalize-menu.js"></script>
-  <!-- build:css css/app.css -->
-  <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
-  <link rel="stylesheet" href="css/icomoon.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- endbuild -->
+    <meta charset="UTF-8">
+    <title>nw.js: Use require</title>
+    <script src="node_modules/nw-normalize-menu/nw-normalize-menu.js"></script>
+    <!-- build:css css/app.css -->
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endbuild -->
 </head>
 <body>
-  <article class="l-content">
-  </article>
-  <script src="node_modules/node-webkit-winstate/index.js"></script>
-  <script src="lib/index.js"></script>
+<article class="l-content">
+</article>
+<script src="lib/index.js"></script>
+<script>
+    if (!global.alreadyShowWindow) {
+        global.alreadyShowWindow = true;
+        var script = document.createElement("script");
+        script.src = "./node_modules/node-webkit-winstate/index.js";
+        document.body.appendChild(script);
+        require('nw.gui').Window.get().showDevTools();
+    }
+    if (process.env.NODE_ENV !== 'production') {
+        var fs = require('fs');
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        var dirList = ['./lib', './css'];
+        dirList.forEach(function (dirPath) {
+            fs.watch(dirPath, {recursive: true}, function () {
+                if (win) {
+                    window.location.reload()
+                }
+            });
+        });
+    }
+</script>
 </body>
 </html>
