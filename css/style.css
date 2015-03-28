@@ -105,12 +105,6 @@
   border-bottom: solid 1px #bdc3c7; }
 
 /**
- * 選択された行。
- */
-.FolderDetail .items .selected {
-  background-color: #ecf0f1; }
-
-/**
  * ヘッダー。
  */
 .FolderDetail .items-header {
@@ -125,21 +119,31 @@
   margin: 0; }
 
 /**
+ * 選択された行。
+ */
+.FolderDetailItem.selected {
+  background-color: #f9ffd9; }
+  .FolderDetailItem.selected .item-content {
+    background-color: #f9ffd9; }
+
+/**
  * アイテム情報。
  */
-.FolderDetail .item {
+.FolderDetailItem {
+  border-top: solid 1px #bdc3c7;
   border-right: solid 1px #bdc3c7;
   padding: .2em .5em;
   white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: normal; }
-  .FolderDetail .item .item-name {
+  .FolderDetailItem .item-name {
     width: 80%; }
-  .FolderDetail .item .item-date {
+  .FolderDetailItem .item-date {
     width: 20%; }
-  .FolderDetail .item .item-content {
-    padding: 0.5em 0;
+  .FolderDetailItem .item-content {
+    padding: 0.5em 0 0 0;
+    margin: 0;
     background-color: #eeeeee; }
 
 .PreviewContent {
