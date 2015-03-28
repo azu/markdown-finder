@@ -23,7 +23,6 @@ var FolderDetail = React.createClass({
             var size = fileutil.bytesToSize(item.size);
             //var mode = fileutil.getPermissionString(item.mode, item.isDirectory);
             var date = fileutil.dateToString(item.mtime);
-
             return (
                 <tr
                     key={index}
@@ -33,9 +32,9 @@ var FolderDetail = React.createClass({
                     onKeyPress={this.onKeyPress.bind(this,item,index)}
                     onDoubleClick={this.onDoubleClickItem.bind( this, item )}>
                     <td><i className={icon}></i> {item.name}</td>
+                    <td>{date}</td>
                     <td>{type}</td>
                     <td>{size}</td>
-                    <td>{date}</td>
                 </tr>
             );
         }, this);
@@ -46,9 +45,9 @@ var FolderDetail = React.createClass({
                     <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Modified</th>
                         <th>Type</th>
                         <th>Size</th>
-                        <th>Modified</th>
                     </tr>
                     </thead>
                     <tbody>
