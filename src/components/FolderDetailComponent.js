@@ -1,11 +1,43 @@
 var React = require('react');
+var readHead = require('head');
+var fileutil = require('../file-utility');
 
+var ListItemWrapper = React.createClass({
+    render(){
+        var item = this.props.item;
+        var style = ( this.props.selected ? 'selected' : '' );
+        var icon = ( item.isDirectory ? 'icon-folder' : 'icon-file' );
+        //var date = fileutil.dateToString(item.mtime);
+        if (item.isDirectory) {
+            return (
+                <li className={style + " item"}
+                    onClick={this.props.onClick}
+                    onKeyPress={this.props.onKeyPress}
+                    onDoubleClick={this.props.onDoubleClick}
+                    >
+                    <span className="item-name"><i className={icon}></i> {item.name}</span>
+                </li>
+            );
+        }
+        return (
+            <li className={style + " item"}
+                onClick={this.props.onClick}
+                onKeyPress={this.props.onKeyPress}
+                onDoubleClick={this.props.onDoubleClick}
+                >
+                <span className="item-name"><i className={icon}></i> {item.name}</span>
+
+                <p className="item-content">{readHead(item.path, 50).toString()}</p>
+            </li>
+        );
+    }
+});
 /**
  * フォルダー内の詳細情報コンポーネントです。
  */
 var FolderDetail = React.createClass({
     sortByTime(items){
-        return this.props.items.sort(function (aItem, bItem) {
+        return items.sort(function (aItem, bItem) {
             return bItem.mtime - aItem.mtime;
         });
     },
@@ -15,39 +47,15 @@ var FolderDetail = React.createClass({
      * @return {Object} 描画オブジェクト。
      */
     render: function () {
-        var readHead = require('head');
-        var fileutil = require('../file-utility');
         var items = this.sortByTime(this.props.items).map((item, index)=> {
-            var style = ( item === this.props.currentItem ? 'selected' : '' );
-            var icon = ( item.isDirectory ? 'icon-folder' : 'icon-file' );
-            //var type = fileutil.getItemType(item);
-            //var size = fileutil.bytesToSize(item.size);
-            //var mode = fileutil.getPermissionString(item.mode, item.isDirectory);
-            //var date = fileutil.dateToString(item.mtime);
-            if (item.isDirectory) {
-                return (
-                    <li
-                        key={item.name}
-                        className={style + " item"}
-                        tabIndex={index}
-                        onClick={this.onClickItem.bind( this, item )}
-                        onKeyPress={this.onKeyPress.bind(this,item,index)}
-                        onDoubleClick={this.onDoubleClickItem.bind( this, item )}>
-                        <span className="item-name"><i className={icon}></i> {item.name}</span>
-                    </li>
-                );
-            }
+            var selected = (item === this.props.currentItem);
             return (
-                <li
-                    key={item.name}
-                    className={style + " item"}
-                    tabIndex={index}
-                    onClick={this.onClickItem.bind( this, item )}
-                    onKeyPress={this.onKeyPress.bind(this,item,index)}
-                    onDoubleClick={this.onDoubleClickItem.bind( this, item )}>
-                    <span className="item-name"><i className={icon}></i> {item.name}</span>
-                    <p className="item-content">{readHead(item.path, 50).toString()}</p>
-                </li>
+                <ListItemWrapper key={item.path}
+                                 item={item} selected={selected}
+                                 onClick={this.onClickItem.bind( this, item )}
+                                 onKeyPress={this.onKeyPress.bind(this,item,index)}
+                                 onDoubleClick={this.onDoubleClickItem.bind( this, item )}
+                    />
             );
         }, this);
         return (
@@ -67,6 +75,7 @@ var FolderDetail = React.createClass({
      * @param {Object} item アイテム情報。
      */
     onClickItem: function (item) {
+        console.log("item");
         this.props.onClickItem(item);
     },
     onKeyPress: function (item, index) {

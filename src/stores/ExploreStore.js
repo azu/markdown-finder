@@ -8,6 +8,7 @@ class ExploreStore extends Store {
         super(flux);
         this.register(keys.selectFolder, this.onSelectFolder);
         this.register(keys.selectItem, this.onSelectItem);
+        this.register(keys.deleteItem, this.onDeleteItem);
         this.state = {
             currentItem: null,
             items: [],
@@ -28,6 +29,13 @@ class ExploreStore extends Store {
     }
 
 
+    onDeleteItem(item){
+        if(this.currentItem === item) {
+            this.setState({
+                currentItem: null
+            });
+        }
+    }
     onSelectFolder(state) {
         this.setState(state);
     }

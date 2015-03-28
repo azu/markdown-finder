@@ -11,7 +11,7 @@ class ExplorerToolbar extends React.Component {
     deleteSelectedNote() {
         let {context} = this.props;
         var currentFolder = context.explorerStore.currentFolder;
-        context.explorerAction.deleteSelectedNote(context.explorerStore.currentItem.path, currentFolder);
+        context.explorerAction.deleteItem(context.explorerStore.currentItem, currentFolder);
     }
 
     render() {

@@ -25,6 +25,7 @@ function getItemInDirectoryAsync(directoryPath) {
 
 export var keys = {
     selectFolder: Symbol("selectFolder"),
+    deleteItem: Symbol("deleteItem"),
     selectItem: Symbol("selectItem")
 };
 class ExploreAction extends Action {
@@ -35,19 +36,18 @@ class ExploreAction extends Action {
         }
     }
 
-    deleteSelectedNote(itemPath, directoryPath) {
-        if (utils.deleteNote(itemPath)) {
+    deleteItem(item, directoryPath) {
+        if (utils.deleteNote(item)) {
 
             // reload
-            setImmediate(()=>{
-                this.selectFolder(directoryPath);
-            })
+            this.selectFolder(directoryPath);
         }
     }
 
     selectFolder(directoryPath) {
         getItemInDirectoryAsync(directoryPath).then((items)=> {
             this.dispatch(keys.selectFolder, {
+                currentItem: null,
                 items: items,
                 currentFolder: directoryPath
             });
