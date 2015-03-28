@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.explorer {
+.l-flexbox {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -7,7 +7,7 @@
   align-content: flex-start;
   align-items: flex-start; }
 
-.explorer {
+.l-flexbox {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -16,7 +16,7 @@
 /**
  * ツリー部分。explorer.js のターゲット。
  */
-.folder-tree {
+.l-LeftSide {
   left: 0;
   top: 0;
   bottom: 0;
@@ -60,6 +60,50 @@
   overflow: scroll;
   border: solid 1px #bdc3c7; }
 
+/**
+ * ツリー内のアイコン。
+ */
+.Explorer [class^="icon-"],
+.Explorer [class*=" icon-"] {
+  margin-right: .2em; }
+
+/**
+ * フォルダのアイコン。
+ */
+.Explorer .icon-folder {
+  color: #3498db; }
+
+/**
+ * ファイルのアイコン。
+ */
+.Explorer .icon-file {
+  color: #f39c12; }
+
+/*******************************************************************************
+ * フォルダ ツリー
+ ******************************************************************************/
+/**
+ * フォルダ内のツリー。
+ */
+.FolderTree ul {
+  margin: .5em;
+  padding: 0 0 0 2em;
+  list-style: none; }
+
+/**
+ * フォルダ内ツリーのアイテム。
+ */
+.FolderTree li {
+  padding: .2em 0;
+  white-space: nowrap; }
+
+/**
+ * ツリー展開状態アイコ。
+ */
+.FolderTree .icon-arrow-right,
+.FolderTree .icon-arrow-down {
+  color: #95a5a6; }
+
 html, body {
   width: 100%;
   height: 100%; }
@@ -71,50 +115,6 @@ html, body {
   width: 100%;
   height: 100%;
   color: #2c3e50; }
-
-/**
- * ツリー内のアイコン。
- */
-.l-content .explorer [class^="icon-"],
-.l-content .explorer [class*=" icon-"] {
-  margin-right: .2em; }
-
-/**
- * フォルダのアイコン。
- */
-.l-content .explorer .icon-folder {
-  color: #3498db; }
-
-/**
- * ファイルのアイコン。
- */
-.l-content .explorer .icon-file {
-  color: #f39c12; }
-
-/*******************************************************************************
- * フォルダ ツリー
- ******************************************************************************/
-/**
- * フォルダ内のツリー。
- */
-.folder-tree ul {
-  margin: .5em;
-  padding: 0 0 0 2em;
-  list-style: none; }
-
-/**
- * フォルダ内ツリーのアイテム。
- */
-.folder-tree li {
-  padding: .2em 0;
-  white-space: nowrap; }
-
-/**
- * ツリー展開状態アイコ。
- */
-.folder-tree .icon-arrow-right,
-.folder-tree .icon-arrow-down {
-  color: #95a5a6; }
 
 /*******************************************************************************
  * フォルダ詳細

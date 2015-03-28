@@ -1,0 +1,21 @@
+/**
+ * ツリー内のアイコン。
+ */
+.Explorer [class^="icon-"],
+.Explorer [class*=" icon-"] {
+  margin-right: .2em;
+}
+
+/**
+ * フォルダのアイコン。
+ */
+.Explorer .icon-folder {
+  color: #3498db;
+}
+
+/**
+ * ファイルのアイコン。
+ */
+.Explorer .icon-file {
+  color: #f39c12;
+}

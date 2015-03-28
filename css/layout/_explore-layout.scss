@@ -8,7 +8,7 @@
   align-items: flex-start;
 }
 
-.explorer {
+.l-flexbox {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -20,7 +20,7 @@
  * ツリー部分。explorer.js のターゲット。
  */
 
-.folder-tree {
+.l-LeftSide {
   left: 0;
   top: 0;
   bottom: 0;

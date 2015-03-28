@@ -35,7 +35,7 @@ var FolderTree = React.createClass({
         var style = this.state.expanded ? {} : {display: 'none'};
         var mark = this.state.expanded ? 'icon-arrow-down' : 'icon-arrow-right';
         return (
-            <div>
+            <div className="FolderTree">
                 <div onClick={this.onClick}>
                     <i className={mark}></i>
                     <i className="icon-folder"></i>

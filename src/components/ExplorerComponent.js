@@ -41,9 +41,10 @@ class ExplorerComponent extends React.Component {
         this.action.selectItem(item);
     }
     
-    onKeyPress(item,index){
+    onKeyPress(item, index) {
         console.log(item, index);
     }
+
     /**
      * コンポーネントの描画オブジェクトを取得します。
      *
@@ -51,8 +52,8 @@ class ExplorerComponent extends React.Component {
      */
     render() {
         return (
-            <div className="explorer">
-                <div className="folder-tree">
+            <div className="Explorer l-flexbox">
+                <div className="l-LeftSide">
                     <FolderTree name="HOME" path={this.state.currentFolder}
                                 onSelectFolder={this.onSelectFolder.bind(this)}/>
                 </div>
