@@ -12,3 +12,5 @@ Based:
 - `c` is **container** prefix.
     - **Container** is wrapper of **Component**.
 - `l` is **layout** prefix.
+    - **layout** is utility class.
+    - **layout** could used anywhere(inside/outside of **Component**/**Container**).
