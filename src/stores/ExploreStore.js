@@ -29,14 +29,10 @@ class ExploreStore extends Store {
 
 
     onSelectFolder(state) {
-        if (this.state.currentFolder === state.currentFolder) {
-            return;
-        }
         this.setState(state);
     }
 
     onSelectItem(item) {
-        console.log(item);
         this.setState({
             currentItem: item
         });

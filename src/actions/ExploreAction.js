@@ -1,6 +1,7 @@
 // LICENSE : MIT
 "use strict";
 import { Action } from 'material-flux';
+import utils  from '../utils/ExploreUtils.js';
 /**
  * フォルダ詳細を更新します。
  *
@@ -27,6 +28,13 @@ export var keys = {
     selectItem: Symbol("selectItem")
 };
 class ExploreAction extends Action {
+    createNewNote(directoryPath) {
+        if (utils.createNewNote(directoryPath)) {
+            // reload
+            this.selectFolder(directoryPath);
+        }
+    }
+
     selectFolder(directoryPath) {
         getItemInDirectoryAsync(directoryPath).then((items)=> {
             this.dispatch(keys.selectFolder, {

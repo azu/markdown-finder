@@ -6,7 +6,7 @@ import ExplorerToolbar from "./ExplorerToolbarComponent.js"
 class AppComponent extends React.Component {
     render() {
         return (<div className="App l-App">
-            <ExplorerToolbar />
+            <ExplorerToolbar context={this.props.context}/>
             <Explorer context={this.props.context}/>
         </div>)
     }
