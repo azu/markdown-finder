@@ -30,7 +30,7 @@
         dirList.forEach(function (dirPath) {
             fs.watch(dirPath, {recursive: true}, function () {
                 if (win) {
-                    window.location.reload()
+                    window.reloadDev()
                 }
             });
         });

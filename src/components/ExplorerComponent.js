@@ -53,20 +53,18 @@ class ExplorerComponent extends React.Component {
     render() {
         return (
             <div className="Explorer l-flexbox">
-                <div className="l-LeftSide">
+                <div className="c-folder-tree">
                     <FolderTree name="HOME" path={this.state.currentFolder}
                                 onSelectFolder={this.onSelectFolder.bind(this)}/>
                 </div>
-                <div className="detail-column">
-                    <div className="folder-detail">
-                        <FolderDetail items={this.state.items}
-                                      currentItem={this.state.currentItem}
-                                      onKeyPress={this.onKeyPress.bind(this)}
-                                      onClickItem={this.onClickItem.bind(this)}/>
-                    </div>
-                    <div className="item-preview">
-                        <PreviewContent item={this.state.currentItem}/>
-                    </div>
+                <div className="c-folder-detail">
+                    <FolderDetail items={this.state.items}
+                                  currentItem={this.state.currentItem}
+                                  onKeyPress={this.onKeyPress.bind(this)}
+                                  onClickItem={this.onClickItem.bind(this)}/>
+                </div>
+                <div className="c-item-preview">
+                    <PreviewContent item={this.state.currentItem}/>
                 </div>
             </div>
         );

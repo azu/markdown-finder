@@ -1,0 +1,53 @@
+/*******************************************************************************
+ * フォルダ詳細
+ ******************************************************************************/
+
+/**
+ * 詳細テーブル。
+ */
+.FolderDetail .items {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: solid 1px #bdc3c7;
+}
+
+/**
+ * 選択された行。
+ */
+.FolderDetail .items .selected {
+  background-color: #ecf0f1;
+}
+
+/**
+ * ヘッダー。
+ */
+.FolderDetail .items th {
+  background-color: #bdc3c7;
+  color: #fff;
+  font-weight: normal;
+  padding: .2em .5em;
+}
+
+/**
+ * アイテム情報。
+ */
+.FolderDetail .items td {
+  border-right: solid 1px #bdc3c7;
+  padding: .2em .5em;
+  white-space: nowrap;
+}
+
+/**
+ * サイズ。
+ */
+.FolderDetail .items td:nth-child( 3 ) {
+  text-align: right;
+}
+
+/**
+ * パーミッション。
+ */
+.FolderDetail .items td:nth-child( 4 ) {
+  text-align: center;
+  font-family: monospace;
+}

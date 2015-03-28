@@ -41,19 +41,21 @@ var FolderDetail = React.createClass({
         }, this);
 
         return (
-            <table className="items">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Size</th>
-                    <th>Modified</th>
-                </tr>
-                </thead>
-                <tbody>
-                {items}
-                </tbody>
-            </table>
+            <div className="FolderDetail">
+                <table className="items">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Modified</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {items}
+                    </tbody>
+                </table>
+            </div>
         );
     },
     /**
