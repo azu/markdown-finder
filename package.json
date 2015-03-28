@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "fs-extra": "^0.16.5",
+    "github-markdown-css": "^2.0.7",
     "head": "git://github.com/visionmedia/node-head",
     "marked": "^0.3.3",
     "material-flux": "^1.0.1",

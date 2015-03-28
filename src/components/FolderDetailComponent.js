@@ -2,7 +2,7 @@ var React = require('react');
 var readHead = require('head');
 var fileutil = require('../file-utility');
 
-var ListItemWrapper = React.createClass({
+var FolderDetailItem = React.createClass({
     render(){
         var item = this.props.item;
         var style = ( this.props.selected ? 'selected' : '' );
@@ -10,7 +10,7 @@ var ListItemWrapper = React.createClass({
         //var date = fileutil.dateToString(item.mtime);
         if (item.isDirectory) {
             return (
-                <li className={style + " item"}
+                <li className={style + " FolderDetailItem"}
                     onClick={this.props.onClick}
                     onKeyPress={this.props.onKeyPress}
                     onDoubleClick={this.props.onDoubleClick}
@@ -20,7 +20,7 @@ var ListItemWrapper = React.createClass({
             );
         }
         return (
-            <li className={style + " item"}
+            <li className={style + " FolderDetailItem"}
                 onClick={this.props.onClick}
                 onKeyPress={this.props.onKeyPress}
                 onDoubleClick={this.props.onDoubleClick}
@@ -50,7 +50,7 @@ var FolderDetail = React.createClass({
         var items = this.sortByTime(this.props.items).map((item, index)=> {
             var selected = (item === this.props.currentItem);
             return (
-                <ListItemWrapper key={item.path}
+                <FolderDetailItem key={item.path}
                                  item={item} selected={selected}
                                  onClick={this.onClickItem.bind( this, item )}
                                  onKeyPress={this.onKeyPress.bind(this,item,index)}

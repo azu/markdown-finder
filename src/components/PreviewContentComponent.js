@@ -5,7 +5,7 @@ var marked = require('marked');
 class ExplorerComponent extends React.Component {
     template() {
         var item = this.props.item;
-        var content="";
+        var content = "";
         if (item) {
             content = require("fs").readFileSync(item.path, "utf-8");
         }
@@ -13,9 +13,13 @@ class ExplorerComponent extends React.Component {
     }
 
     render() {
+        var item = this.props.item;
+        if (item == null || item.isDirectory) {
+            return <div />;
+        }
         var content = this.template();
-        return (<div className="PreviewContentComponent">
-            <div dangerouslySetInnerHTML={{
+        return (<div className="PreviewContent">
+            <div className="markdown-body" dangerouslySetInnerHTML={{
             __html: marked(content)
           }}>
             </div>
