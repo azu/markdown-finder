@@ -15,6 +15,7 @@ var FolderDetail = React.createClass({
      * @return {Object} 描画オブジェクト。
      */
     render: function () {
+        console.log(this.props.items)
         var fileutil = require('../file-utility');
         var items = this.sortByTime(this.props.items).map((item, index)=> {
             var style = ( item === this.props.currentItem ? 'selected' : '' );
@@ -25,7 +26,7 @@ var FolderDetail = React.createClass({
             var date = fileutil.dateToString(item.mtime);
             return (
                 <tr
-                    key={index}
+                    key={item.name}
                     className={style}
                     tabIndex={index}
                     onClick={this.onClickItem.bind( this, item )}
@@ -38,7 +39,6 @@ var FolderDetail = React.createClass({
                 </tr>
             );
         }, this);
-
         return (
             <div className="FolderDetail">
                 <table className="items">

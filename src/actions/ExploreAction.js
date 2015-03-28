@@ -35,6 +35,16 @@ class ExploreAction extends Action {
         }
     }
 
+    deleteSelectedNote(itemPath, directoryPath) {
+        if (utils.deleteNote(itemPath)) {
+
+            // reload
+            setImmediate(()=>{
+                this.selectFolder(directoryPath);
+            })
+        }
+    }
+
     selectFolder(directoryPath) {
         getItemInDirectoryAsync(directoryPath).then((items)=> {
             this.dispatch(keys.selectFolder, {

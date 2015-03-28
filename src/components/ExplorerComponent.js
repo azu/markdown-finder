@@ -22,7 +22,6 @@ class ExplorerComponent extends React.Component {
     }
 
     _onChange() {
-        console.log(this.store.items);
         this.setState({
             items: this.store.items,
             currentFolder: this.store.currentFolder,

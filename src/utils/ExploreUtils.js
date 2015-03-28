@@ -1,6 +1,6 @@
 // LICENSE : MIT
 "use strict";
-var fs = require("fs");
+var fs = require("fs-extra");
 var path = require("path");
 function createNewNote(directoryPath) {
     var title = window.prompt("Create New Note Title:", "");
@@ -17,6 +17,15 @@ function createNewNote(directoryPath) {
     return true;
 }
 
+/**
+ * delete, if success return true
+ * @param itemPath
+ */
+function deleteNote(itemPath){
+    fs.removeSync(itemPath);
+    return true;
+}
 module.exports = {
-    createNewNote
+    createNewNote,
+    deleteNote
 };
