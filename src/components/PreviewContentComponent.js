@@ -1,6 +1,5 @@
 // LICENSE : MIT
 "use strict";
-"use strict";
 var React = require('react');
 var marked = require('marked');
 class ExplorerComponent extends React.Component {
