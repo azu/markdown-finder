@@ -21,33 +21,37 @@
 /**
  * ヘッダー。
  */
-.FolderDetail .items th {
+.FolderDetail .items-header {
   background-color: #bdc3c7;
   color: #fff;
   font-weight: normal;
   padding: .2em .5em;
 }
 
+.FolderDetail .items {
+  list-style-type: none;
+  padding-left: 0.2em;
+  margin: 0;
+}
+
 /**
  * アイテム情報。
  */
-.FolderDetail .items td {
+.FolderDetail .item {
   border-right: solid 1px #bdc3c7;
   padding: .2em .5em;
-  white-space: nowrap;
-}
-
-/**
- * サイズ。
- */
-.FolderDetail .items td:nth-child( 3 ) {
-  text-align: right;
-}
-
-/**
- * パーミッション。
- */
-.FolderDetail .items td:nth-child( 4 ) {
-  text-align: center;
-  font-family: monospace;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  .item-name {
+    width: 80%;
+  }
+  .item-date {
+    width: 20%
+  }
+  .item-content{
+    padding: 0.5em 0;
+    background-color: #eeeeee;
+  }
 }

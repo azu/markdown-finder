@@ -162,7 +162,7 @@ module.exports = {
      * @return {String} ホームディレクトリのパス。
      */
     getUserHomeDir: function () {
-        return process.env[( process.platform == 'win32' ) ? 'USERPROFILE' : 'HOME'] +"/Dropbox/Memo";
+        return process.env[( process.platform == 'win32' ) ? 'USERPROFILE' : 'HOME'] + "/Dropbox/Memo";
     },
     /**
      * パーミッションを示す数値から記号化された文字列を取得します。
